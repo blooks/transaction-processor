@@ -19,7 +19,7 @@
     "test": "gulp test",
     "coverage": "gulp coverage",
     "build": "gulp",
-    "start": "forever index.js"
+    "start": "node index.js"
   },
   "license": "All rights reserved",
   "bugs": {
