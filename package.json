@@ -1,6 +1,6 @@
 {
   "name": "coyno-transaction-processor",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A library to manage transactions for Coyno.",
   "main": "index.js",
   "repository": {
@@ -29,7 +29,7 @@
   "dependencies": {
     "async": "0.9.x",
     "coyno-chain": "0.1.x",
-    "coyno-converter": "0.0.26",
+    "coyno-converter": "0.0.x",
     "coyno-dispatcher": "0.0.x",
     "coyno-kue": "0.0.x",
     "coyno-log": "0.0.x",
