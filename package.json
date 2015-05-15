@@ -1,6 +1,6 @@
 {
   "name": "coyno-transaction-processor",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A library to manage transactions for Coyno.",
   "main": "index.js",
   "repository": {
