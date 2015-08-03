@@ -22,8 +22,7 @@ deployment:
   production:
     branch: master
     commands:
-      - docker info
+      - npm publish
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS tutum.co
       - docker build -t tutum.co/levino/coyno-transaction-processor .
       - docker push tutum.co/levino/coyno-transaction-processor
-      - npm publish
