@@ -17,13 +17,13 @@ deployment:
     commands:
       - docker info
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS tutum.co
-      - docker build -t tutum.co/levino/coyno-address-updater:staging .
-      - docker push tutum.co/levino/coyno-address-updater:staging
+      - docker build -t tutum.co/levino/coyno-transaction-processor:staging .
+      - docker push tutum.co/levino/coyno-transaction-processor:staging
   production:
     branch: master
     commands:
       - docker info
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS tutum.co
-      - docker build -t tutum.co/levino/coyno-address-updater .
-      - docker push tutum.co/levino/coyno-address-updater
+      - docker build -t tutum.co/levino/coyno-transaction-processor .
+      - docker push tutum.co/levino/coyno-transaction-processor
       - npm publish
