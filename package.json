@@ -20,9 +20,9 @@
   },
   "license": "All rights reserved",
   "bugs": {
-    "url": "https://github.com/coyno/coyno-transfers/issues"
+    "url": "https://github.com/coyno/coyno-transaction-processor/issues"
   },
-  "homepage": "https://github.com/coyno/coyno-transfers",
+  "homepage": "https://github.com/coyno/coyno-transaction-processor",
   "dependencies": {
     "async": "0.9.x",
     "chai": "^2.3.0",
