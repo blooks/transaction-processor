@@ -1,0 +1,29 @@
+dependencies:
+  override:
+    - echo "registry="$NPM_REGISTRY >> .npmrc
+    - echo "_auth="$NPM_AUTH_TOKEN >> .npmrc
+    - echo "email="$NPM_EMAIL >> .npmrc
+    - echo "always-auth=true" >> .npmrc
+    - echo "strict-ssl=false" >> .npmrc
+    - npm install
+
+machine:
+  services:
+    - docker
+
+deployment:
+  staging:
+    branch: develop
+    commands:
+      - docker info
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS tutum.co
+      - docker build -t tutum.co/levino/coyno-address-updater:staging .
+      - docker push tutum.co/levino/coyno-address-updater:staging
+  production:
+    branch: master
+    commands:
+      - docker info
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS tutum.co
+      - docker build -t tutum.co/levino/coyno-address-updater .
+      - docker push tutum.co/levino/coyno-address-updater
+      - npm publish

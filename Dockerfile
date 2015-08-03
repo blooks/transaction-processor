@@ -1,1 +1,1 @@
-FROM coyno-node
+FROM tutum.co/levino/coyno-node
