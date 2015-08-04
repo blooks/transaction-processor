@@ -19,10 +19,13 @@ deployment:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS tutum.co
       - docker build -t tutum.co/levino/coyno-transaction-processor:staging .
       - docker push tutum.co/levino/coyno-transaction-processor:staging
-  production:
+  release:
     branch: master
     commands:
       - npm publish
+  stable:
+    branch: stable
+    commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS tutum.co
-      - docker build -t tutum.co/levino/coyno-transaction-processor .
-      - docker push tutum.co/levino/coyno-transaction-processor
+      - docker build -t tutum.co/levino/coyno-transaction-processor:stable .
+      - docker push tutum.co/levino/coyno-transaction-processor:stable
