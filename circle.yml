@@ -1,6 +1,7 @@
 dependencies:
   override:
-    - echo "//"$NPM_REGISTRY"/:_authToken"$NPM_AUTH_TOKEN >> .npmrc
+    - echo "registry="$NPM_REGISTRY >> .npmrc
+    - echo "//registry.coyno.com/:_authToken="$NPM_AUTH_TOKEN >> .npmrc
     - cat .npmrc
     - npm install
 
