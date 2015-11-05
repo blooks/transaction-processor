@@ -1,1 +1,8 @@
 test
+.npmrc
+.editorconfig
+.gitignore
+.jshintrc
+.jshintignore
+Dockerfile
+npm-debug.log
