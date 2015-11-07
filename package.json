@@ -30,7 +30,7 @@
     "coyno-converter": "0.0.26",
     "coyno-dispatcher": "0.0.15",
     "coyno-kue": "0.0.14",
-    "coyno-log": "^0.1.1",
+    "coyno-log": "^0.2.0",
     "coyno-mockup-data": "0.0.x",
     "coyno-mongo": "0.1.x",
     "coyno-util": "0.0.x",
