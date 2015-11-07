@@ -2,6 +2,7 @@ dependencies:
   override:
     - echo "registry="$NPM_REGISTRY >> .npmrc
     - echo "//registry.coyno.com/:_authToken="$NPM_AUTH_TOKEN >> .npmrc
+    - apt-get install build-essential g++
     - npm install
 
 machine:
