@@ -1,1 +1,1 @@
-FROM tutum.co/levino/coyno-node
+FROM node:6-onbuild
