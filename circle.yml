@@ -1,13 +1,6 @@
-dependencies:
-  override:
-    - echo "registry="$NPM_REGISTRY >> .npmrc
-    - echo "_auth="$NPM_AUTH_TOKEN >> .npmrc
-    - echo "email="$NPM_EMAIL >> .npmrc
-    - echo "always-auth=true" >> .npmrc
-    - echo "strict-ssl=false" >> .npmrc
-    - npm install
-
 machine:
+  node:
+    version: 6
   services:
     - docker
 
@@ -15,12 +8,20 @@ deployment:
   develop:
     branch: develop
     commands:
-      - docker info
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS tutum.co
-      - docker build -t tutum.co/levino/coyno-transaction-processor:develop .
-      - docker push tutum.co/levino/coyno-transaction-processor:develop
-  production:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker build -t blooks/transaction-processor:develop .
+      - docker push blooks/transaction-processor:develop
+  master:
     branch: master
+    commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS tutum.co
-      - docker build -t tutum.co/levino/coyno-transaction-processor .
-      - docker push tutum.co/levino/coyno-transaction-processor
+      - docker build -t blooks/transaction-processor .
+      - docker push blooks/transaction-processor
+  versionbuild:
+    tag: /v[0-9]+(\.[0-9]+)*/
+    commands:
+      - mv file.npmrc .npmrc
+      - npm publish --access=public
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker build -t blooks/address-updater:$CIRCLE_TAG .
+      - docker push blooks/address-updater:$CIRCLE_TAG
