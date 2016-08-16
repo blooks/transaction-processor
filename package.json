@@ -15,7 +15,7 @@
     }
   ],
   "scripts": {
-    "test": "exit 0",
+    "test": "mocha test",
     "start": "node start.js"
   },
   "license": "All rights reserved",
@@ -24,20 +24,34 @@
   },
   "homepage": "https://github.com/coyno/coyno-transaction-processor",
   "dependencies": {
-    "async": "^1.4.0",
-    "chai": "^2.3.0",
-    "coyno-chain": "0.1.x",
-    "coyno-converter": "0.0.x",
-    "coyno-dispatcher": "0.0.x",
-    "coyno-kue": "0.0.x",
-    "coyno-log": ">=0.1.0 <0.2",
-    "coyno-mockup-data": "0.0.x",
-    "coyno-mongo": "0.1.x",
-    "coyno-util": "0.0.x",
-    "lodash": "^3.10.0"
+    "@blooks/blockchain": "^0.2.7",
+    "@blooks/jobs": "0.0.4",
+    "@blooks/log": "^0.2.4",
+    "@blooks/mongo": "^0.2.2",
+    "async": "^2.0.1",
+    "bitcore-lib": "^0.13.19",
+    "chai": "^3.5.0",
+    "kue": "^0.11.1",
+    "lodash": "^4.15.0"
   },
   "devDependencies": {
-    "q": "^1.2.1",
-    "should": "^6.0.1"
+    "@blooks/test-data": "^0.1.3",
+    "mocha": "^3.0.2",
+    "q": "^1.4.1",
+    "should": "^11.1.0",
+    "standard": "^7.1.2"
+  },
+  "eslintConfig": {
+    "env": {
+      "mocha": true,
+      "node": true
+    },
+    "extends": "standard"
+  },
+  "standard": {
+    "env": [
+      "node",
+      "mocha"
+    ]
   }
 }
