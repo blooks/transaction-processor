@@ -4,7 +4,6 @@ machine:
   services:
     - docker
     - redis
-    - mongo
 
 deployment:
   master:
