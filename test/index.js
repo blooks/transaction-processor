@@ -64,7 +64,7 @@ describe('Tests for Package Coyno Transfers', function () {
     it('should process transactions', (done) => {
       var transactions = testDataManager.getTransfers()
       var userId = transactions[0].userId
-      var processor = new Processor(userId, mongo)
+      var processor = new Processor({userId, mongoConnection: mongo})
       processor.process(transactions, done)
     })
   })
