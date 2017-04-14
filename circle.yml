@@ -5,23 +5,15 @@ machine:
     - docker
 
 deployment:
-  develop:
-    branch: develop
-    commands:
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker build -t blooks/transaction-processor:develop .
-      - docker push blooks/transaction-processor:develop
   master:
     branch: master
     commands:
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS tutum.co
-      - docker build -t blooks/transaction-processor .
-      - docker push blooks/transaction-processor
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker build -t blooks/transaction-processor:master .
+      - docker push blooks/transaction-processor:master
   versionbuild:
     tag: /v[0-9]+(\.[0-9]+)*/
     commands:
-      - mv file.npmrc .npmrc
-      - npm publish --access=public
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker build -t blooks/address-updater:$CIRCLE_TAG .
       - docker push blooks/address-updater:$CIRCLE_TAG
